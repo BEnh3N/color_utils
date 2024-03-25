@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "color_utils",
+  "version": "${version}",
+  "name": "Color Utils",
+  "description": "",
+  "authors": [
+    "BEnh3N"
+  ],
+  "contact": {
+    "repo": "https://github.com/benh3n/color_utils"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/color_utils/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.benh3n.color_utils.client.ColorUtilsClient"
+    ],
+    "main": [
+      "net.benh3n.color_utils.ColorUtils"
+    ]
+  },
+  "mixins": [
+    "color_utils.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
