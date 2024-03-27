@@ -3,8 +3,6 @@ package net.benh3n.color_utils;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.registry.Registry;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.resource.ResourceType;
@@ -15,11 +13,14 @@ import org.slf4j.LoggerFactory;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ColorUtils implements ModInitializer {
     public static final String MOD_ID = "color_utils";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    public static final Map<Identifier, Integer> BLOCK_COLORS = new LinkedHashMap<>();
 
     @Override
     public void onInitialize() {
@@ -36,9 +37,6 @@ public class ColorUtils implements ModInitializer {
                 Map<Identifier, Resource> resources = manager.findResources("textures/block", path -> path.getPath().endsWith(".png"));
                 for (Map.Entry<Identifier, Resource> entry : resources.entrySet()) {
                     Identifier id = entry.getKey();
-                    if (!id.getPath().equals("textures/block/red_mushroom_block.png")) {
-                        continue;
-                    }
 
                     Resource resource = entry.getValue();
                     try (InputStream stream = resource.getInputStream()) {
@@ -73,7 +71,8 @@ public class ColorUtils implements ModInitializer {
                         int ave_r = (int)Math.round(tot_r / weight);
                         int ave_g = (int)Math.round(tot_g / weight);
                         int ave_b = (int)Math.round(tot_b / weight);
-                        LOGGER.info(ave_r + ", " + ave_g + ", " + ave_b);
+                        int rgb = (ave_r << 16) | (ave_g << 8) | ave_b;
+                        BLOCK_COLORS.put(id, rgb);
                     } catch (Exception e) {
                         LOGGER.error("Error occurred while loading texture file " + resource, e);
                     }
