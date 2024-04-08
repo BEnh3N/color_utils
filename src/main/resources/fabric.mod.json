@@ -3,12 +3,13 @@
   "id": "color_utils",
   "version": "${version}",
   "name": "Color Utils",
-  "description": "",
+  "description": "A mod to help builders find the perfect color for their next build",
   "authors": [
     "BEnh3N"
   ],
   "contact": {
-    "repo": "https://github.com/benh3n/color_utils"
+    "homepage": "https://github.com/benh3n/color_utils",
+    "issues": "https://github.com/BEnh3N/color_utils/issues"
   },
   "license": "All-Rights-Reserved",
   "icon": "assets/color_utils/icon.png",
@@ -28,5 +29,10 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "modmenu": {
+      "update_checker": false
+    }
   }
 }
