@@ -1,7 +1,7 @@
-package net.benh3n.color_utils.client;
+package net.benh3n.color_utils.client.gui.screen;
 
 import net.benh3n.color_utils.ColorUtils;
-import net.benh3n.color_utils.client.gui.ColorsListWidget;
+import net.benh3n.color_utils.client.gui.widget.ColorsListWidget;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.Screen;

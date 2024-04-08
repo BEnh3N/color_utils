@@ -1,4 +1,4 @@
-package net.benh3n.color_utils.client.gui;
+package net.benh3n.color_utils.client.gui.widget;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;

@@ -74,7 +74,7 @@ public class ColorUtils implements ModInitializer {
                         int rgb = (ave_r << 16) | (ave_g << 8) | ave_b;
                         BLOCK_COLORS.put(id, rgb);
                     } catch (Exception e) {
-                        LOGGER.error("Error occurred while loading texture file " + resource, e);
+                        LOGGER.error("Error occurred while loading texture file {}", resource, e);
                     }
                 }
             }
